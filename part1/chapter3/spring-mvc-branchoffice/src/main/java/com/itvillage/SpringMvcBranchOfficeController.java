@@ -34,7 +34,10 @@ public class SpringMvcBranchOfficeController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{book-id}")
-    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId) {
+    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId)
+            throws InterruptedException {
+        Thread.sleep(200);
+
         Book book = bookMap.get(bookId);
 
         return ResponseEntity.ok(book);

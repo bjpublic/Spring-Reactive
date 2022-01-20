@@ -39,7 +39,8 @@ public class SpringMvcHeadOfficeController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{book-id}")
-    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId) throws InterruptedException {
+    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId)
+            throws InterruptedException {
         URI getBookUri = UriComponentsBuilder.fromUri(baseUri)
                 .path("/{book-id}")
                 .build()
@@ -47,12 +48,9 @@ public class SpringMvcHeadOfficeController {
                 .encode()
                 .toUri(); // http://localhost:7070/v1/books/{book-id}
 
-        Thread.sleep(200);
-
         ResponseEntity<Book> response = restTemplate.getForEntity(getBookUri, Book.class);
         Book book = response.getBody();
 
         return ResponseEntity.ok(book);
     }
-
 }
