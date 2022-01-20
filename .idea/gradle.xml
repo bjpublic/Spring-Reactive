@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter1" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter2" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter2" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter3" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-mvc-branchoffice" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter3/spring-mvc-branchoffice" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-mvc-headoffice" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter3/spring-mvc-headoffice" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-reactive-branchoffice" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter3/spring-reactive-branchoffice" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-reactive-headoffice" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter3/spring-reactive-headoffice" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part2" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part2" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part3" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part3" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part4" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part4" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
