@@ -13,8 +13,12 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
+import java.time.LocalTime;
 import java.util.List;
 
+/**
+ * 본사 API 서버에 도서 정보를 요청하는 검색용 클라이언트 PC 역할을 한다.
+ */
 @Slf4j
 @SpringBootApplication
 public class SpringReactiveHeadOfficeApplication {
@@ -35,23 +39,21 @@ public class SpringReactiveHeadOfficeApplication {
 			// 서버쪽으로 대량의 호출 및 시간 측정을 한다.
 			StopWatch stopWatch = new StopWatch("client -> server");
 
+			log.info("# 요청 시작 시간: {}", LocalTime.now());
+			stopWatch.start("# 도서 조회");
 			for (int i = 1; i <= 30; i++) {
-				stopWatch.start("# 도서 목록 조회");
 					this.getBook(i)
 							.subscribe(
 									book -> {
 										// 전달 받은 도서를 처리.
-									},
-									error -> {},
-									() -> log.info("# 도서 처리 완료")
+									}
 							);
-				stopWatch.stop();
 			}
-
-
+			stopWatch.stop();
 
 			log.info(stopWatch.prettyPrint());
-			log.info("# 전체 조회 시간: {} ms", stopWatch.getTotalTimeMillis());
+			log.info("# 응답 완료 시간: {}", LocalTime.now());
+			log.info("# 전체 처리 시간: {} ms", stopWatch.getTotalTimeMillis());
 		};
 	}
 
@@ -62,9 +64,7 @@ public class SpringReactiveHeadOfficeApplication {
 				.expand(bookId)
 				.encode()
 				.toUri(); // http://localhost:8080/v1/books/{book-id}
-
-
-
+		
 		return WebClient.create()
 				.get()
 				.uri(getBooksUri)

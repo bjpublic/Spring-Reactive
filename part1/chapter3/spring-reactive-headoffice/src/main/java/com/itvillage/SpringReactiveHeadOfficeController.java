@@ -14,7 +14,8 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 
 /**
- * 검색용 클라이언트 PC에서 들어오는 요청을 처리하는 본사 메인 Server
+ * 검색용 클라이언트 PC에서 들어오는 요청을 처리하는 Spring WebFlux 기반의
+ * 본사 API Server
  */
 @Slf4j
 @RequestMapping(path = "/v1/books", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -33,14 +34,14 @@ public class SpringReactiveHeadOfficeController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{book-id}")
-    public Mono<Book> getBook(@PathVariable("book-id") long bookId) throws InterruptedException {
+    public Mono<Book> getBook(@PathVariable("book-id") long bookId) {
         URI getBookUri = UriComponentsBuilder.fromUri(baseUri)
                 .path("/{book-id}")
                 .build()
                 .expand(bookId)
                 .encode()
                 .toUri(); // http://localhost:7070/v1/books/{book-id}
-        Thread.sleep(200);
+
         return WebClient.create()
                 .get()
                 .uri(getBookUri)

@@ -16,7 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 검색용 클라이언트 PC에서 들어오는 요청을 처리하는 본사 메인 Server
+ * 검색용 클라이언트 PC에서 들어오는 요청을 처리하는 Spring MVC 기반
+ * 본사 API Server
  */
 @Slf4j
 @RequestMapping(path = "/v1/books", produces = {MediaType.APPLICATION_JSON_VALUE})

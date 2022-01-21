@@ -18,7 +18,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 본사 서버에서 들어오는 요청을 처리하는 지점 Server
+ * 본사 서버에서 들어오는 요청을 처리하는 Spring MVC 기반
+ * 지점 API Server
  */
 @Slf4j
 @RequestMapping(path = "/v1/books", produces = {MediaType.APPLICATION_JSON_VALUE})
