@@ -24,7 +24,7 @@ import java.util.List;
 public class SpringReactiveHeadOfficeApplication {
 	private URI baseUri = UriComponentsBuilder.newInstance().scheme("http")
 			.host("localhost")
-			.port(8080)
+			.port(6060)
 			.path("/v1/books")
 			.build()
 			.encode()
@@ -64,7 +64,7 @@ public class SpringReactiveHeadOfficeApplication {
 				.expand(bookId)
 				.encode()
 				.toUri(); // http://localhost:8080/v1/books/{book-id}
-		
+
 		return WebClient.create()
 				.get()
 				.uri(getBooksUri)

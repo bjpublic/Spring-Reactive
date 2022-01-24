@@ -24,7 +24,7 @@ import java.net.URI;
 public class SpringReactiveHeadOfficeController {
     URI baseUri = UriComponentsBuilder.newInstance().scheme("http")
             .host("localhost")
-            .port(7070)
+            .port(5050)
             .path("/v1/books")
             .build()
             .encode()
