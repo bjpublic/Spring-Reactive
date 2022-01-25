@@ -95,6 +95,16 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter4" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part1/chapter4" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part2" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
         <option name="modules">
