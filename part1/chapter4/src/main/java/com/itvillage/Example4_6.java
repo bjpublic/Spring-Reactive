@@ -1,26 +1,21 @@
 package com.itvillage;
 
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Arrays;
 import java.util.List;
 
 import static com.itvillage.CryptoCurrency.CurrencyUnit;
 
+/**
+ * 람다 캡처링 예제
+ */
 public class Example4_6 {
     public static void main(String[] args) {
-        List<CryptoCurrency> cryptoCurrencies = Arrays.asList(
-                new CryptoCurrency("Bitcoin", CurrencyUnit.BTC),
-                new CryptoCurrency("Ethereum", CurrencyUnit.ETH),
-                new CryptoCurrency("Polkadot", CurrencyUnit.DOT),
-                new CryptoCurrency("Cardano", CurrencyUnit.ADA),
-                new CryptoCurrency("Solana", CurrencyUnit.SOL)
-        );
+        List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
 
+        String korBTC = "비트코인";
+//        korBTC = "빗코인";
         cryptoCurrencies.stream()
-                .map(cc -> cc.getName())
-//                .map(name -> StringUtils.upperCase(name))
-                .map(StringUtils::upperCase)
-                .forEach(name -> System.out.println(name));
+                .filter(cc -> cc.getUnit() == CurrencyUnit.BTC)
+                .map(cc -> cc.getName() + "(" + korBTC + ")" )
+                .forEach(cc -> System.out.println(cc));
     }
 }

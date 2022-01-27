@@ -13,7 +13,7 @@ public class CryptoCurrency {
         this.unit = unit;
     }
 
-    public CryptoCurrency(String name, CurrencyUnit unit, int price, int amount) {
+    public CryptoCurrency(String name, CurrencyUnit unit, int price) {
         this.name = name;
         this.unit = unit;
         this.price = price;
