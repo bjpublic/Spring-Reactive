@@ -1,5 +1,7 @@
 package com.itvillage;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
+
 import java.util.List;
 
 import static com.itvillage.CryptoCurrency.CurrencyUnit;
@@ -10,12 +12,19 @@ import static com.itvillage.CryptoCurrency.CurrencyUnit;
 public class Example4_9 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
+        int btcPrice = cryptoCurrencies.stream()
+                .filter(cc -> cc.getUnit() == CurrencyUnit.BTC)
+                .findFirst()
+                .get()
+                .getPrice();
 
-        PaymentCalculator calculator = new PaymentCalculator(CurrencyUnit.BTC, 2);
+        int amount = 2;
+
+        PaymentCalculator calculator = new PaymentCalculator();
         cryptoCurrencies.stream()
-                .filter(cc -> cc.getUnit() == calculator.getUnit())
-                .map(cc -> cc.getPrice())
-//                .map(price -> calculator.getTotalPayment(price))
+                .filter(cc -> cc.getUnit() == CurrencyUnit.BTC)
+                .map(cc -> new ImmutablePair(cc.getPrice(), amount))
+//                .map(pair -> calculator.getTotalPayment(pair))
                 .map(calculator::getTotalPayment)
                 .forEach(System.out::println);
     }

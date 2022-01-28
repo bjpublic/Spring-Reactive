@@ -1,19 +1,21 @@
 package com.itvillage;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 public class PaymentCalculator {
-    private CryptoCurrency.CurrencyUnit unit;
-    private int amount;
+    private Pair<Integer, Integer> pair;
 
-    public PaymentCalculator(CryptoCurrency.CurrencyUnit unit, int amount) {
-        this.unit = unit;
-        this.amount = amount;
+    public PaymentCalculator(){}
+
+    public PaymentCalculator(Pair<Integer, Integer> pair) {
+        this.pair = pair;
     }
 
-    public CryptoCurrency.CurrencyUnit getUnit() {
-        return unit;
+    public int getTotalPayment() {
+        return pair.getLeft() * pair.getRight();
     }
 
-    public int getTotalPayment(int price) {
-        return amount * price;
+    public int getTotalPayment(Pair<Integer, Integer> pair) {
+        return pair.getLeft() * pair.getRight();
     }
 }
