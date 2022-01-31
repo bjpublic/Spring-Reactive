@@ -13,11 +13,6 @@ import static com.itvillage.CryptoCurrency.CurrencyUnit;
 public class Example4_10 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
-        int btcPrice = cryptoCurrencies.stream()
-                .filter(cc -> cc.getUnit() == CurrencyUnit.BTC)
-                .findFirst()
-                .get()
-                .getPrice();
 
         int amount = 2;
 
@@ -28,7 +23,7 @@ public class Example4_10 {
 //                                            .map(pair -> new PaymentCalculator(pair))
                                 .map(PaymentCalculator::new)
                                 .findFirst();
-        
+
         System.out.println(optional.get().getTotalPayment());
     }
 }
