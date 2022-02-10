@@ -17,7 +17,7 @@ import java.util.Collections;
  * Mono 활용 예제
  *  - worldtimeapi.org Open API를 이용해서 서울의 현재 시간을 조회한다.
  */
-public class Example5_4 {
+public class Example6_3 {
     public static void main(String[] args) {
         URI worldTimeUri = UriComponentsBuilder.newInstance().scheme("http")
                 .host("worldtimeapi.org")
