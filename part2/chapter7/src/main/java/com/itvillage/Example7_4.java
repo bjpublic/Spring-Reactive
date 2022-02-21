@@ -24,7 +24,6 @@ public class Example7_4 {
         mono.subscribe(dateTime -> log.info("# dateTime 1: {}", dateTime));
         Thread.sleep(2000);
         mono.subscribe(dateTime -> log.info("# dateTime 2: {}", dateTime));
-
         
         Thread.sleep(2000);
     }
