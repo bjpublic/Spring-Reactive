@@ -4,6 +4,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -14,6 +16,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -24,6 +28,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter1" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -34,6 +40,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter2" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -44,6 +52,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -54,6 +64,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-mvc-branchoffice" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -64,6 +76,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-mvc-headoffice" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -74,6 +88,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-reactive-branchoffice" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -84,6 +100,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter3/spring-reactive-headoffice" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -94,6 +112,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part1/chapter4" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -104,6 +124,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part2" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -114,6 +136,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part2/chapter5" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -124,6 +148,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part2/chapter6" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -134,6 +160,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part2/chapter7" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -144,6 +172,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part3" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
@@ -154,6 +184,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/part4" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../6_software/3_build/gradle-5.4-bin/gradle-5.4" />
