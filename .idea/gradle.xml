@@ -182,6 +182,16 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part2/chapter9" />
+        <option name="gradleHome" value="E:/6_software/3_build/gradle-5.4-bin/gradle-5.4" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/part2/chapter9" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
