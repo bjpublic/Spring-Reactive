@@ -14,6 +14,7 @@ import java.util.stream.IntStream;
 @Slf4j
 public class Example9_2 {
     public static void main(String[] args) throws InterruptedException {
+        // TODO 코드 수정 필요
         Sinks.Many<Integer> unicastSink = Sinks.many().unicast().onBackpressureBuffer();
         Flux<Integer> fluxView = unicastSink.asFlux();
         IntStream

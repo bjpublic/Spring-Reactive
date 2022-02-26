@@ -14,20 +14,27 @@ import java.util.stream.IntStream;
 @Slf4j
 public class Example9_1 {
     public static void main(String[] args) throws InterruptedException {
+        int tasks = 6;
         Flux
-            .create((FluxSink<Integer> sink) -> {
+            .create((FluxSink<String> sink) -> {
                 IntStream
-                        .range(1, 6)
-                        .forEach(n -> sink.next(n));
+                        .range(1, tasks)
+                        .forEach(n -> sink.next(doTask(n)));
             })
             .subscribeOn(Schedulers.boundedElastic())
-            .doOnNext(n -> log.info("# doOnNext create(): {}", n))
+            .doOnNext(n -> log.info("# create(): {}", n))
             .publishOn(Schedulers.parallel())
-            .filter(n -> n % 2 == 0)
-            .doOnNext(n -> log.info("# doOnNext filter(): {}", n))
+            .map(result -> result + " success!")
+            .doOnNext(n -> log.info("# map(): {}", n))
             .publishOn(Schedulers.parallel())
             .subscribe(data -> log.info("# onNext: {}", data));
 
         Thread.sleep(500L);
+    }
+
+    private static String doTask(int taskNumber) {
+        // now tasking.
+        // complete to task.
+        return "task " + taskNumber + " result";
     }
 }
