@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 /**
  * create() Operator를 사용하는 예제
- *  - 일반적으로 Publisher의 데이터 생성을 단일 쓰레드에서 진행한다.
+ *  - 일반적으로 Publisher가 단일 쓰레드에서 데이터 생성한다.
  */
 @Slf4j
 public class Example9_1 {

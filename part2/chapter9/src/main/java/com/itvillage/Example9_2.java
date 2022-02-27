@@ -14,15 +14,16 @@ import java.util.stream.IntStream;
 @Slf4j
 public class Example9_2 {
     public static void main(String[] args) throws InterruptedException {
-        // TODO 코드 수정 필요
-        Sinks.Many<Integer> unicastSink = Sinks.many().unicast().onBackpressureBuffer();
-        Flux<Integer> fluxView = unicastSink.asFlux();
+        int tasks = 6;
+
+        Sinks.Many<String> unicastSink = Sinks.many().unicast().onBackpressureBuffer();
+        Flux<String> fluxView = unicastSink.asFlux();
         IntStream
-                .range(1, 6)
+                .range(1, tasks)
                 .forEach(n -> {
                     try {
                         new Thread(() -> {
-                            unicastSink.emitNext(n, Sinks.EmitFailureHandler.FAIL_FAST);
+                            unicastSink.emitNext(doTask(n), Sinks.EmitFailureHandler.FAIL_FAST);
                             log.info("# emitted: {}", n);
                         }).start();
                         Thread.sleep(100L);
@@ -30,9 +31,18 @@ public class Example9_2 {
                 });
 
         fluxView
-                .subscribeOn(Schedulers.boundedElastic())
+                .publishOn(Schedulers.parallel())
+                .map(result -> result + " success!")
+                .doOnNext(n -> log.info("# map(): {}", n))
+                .publishOn(Schedulers.parallel())
                 .subscribe(data -> log.info("# onNext: {}", data));
 
         Thread.sleep(200L);
+    }
+
+    private static String doTask(int taskNumber) {
+        // now tasking.
+        // complete to task.
+        return "task " + taskNumber + " result";
     }
 }
