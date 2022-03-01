@@ -17,9 +17,10 @@ public class Example9_4 {
         Mono<String> mono = sinkOne.asMono();
 
         sinkOne.emitValue("Hello Reactor", FAIL_FAST);
-//        sinkOne.emitValue("Hi Reactor", FAIL_FAST);
+        sinkOne.emitValue("Hi Reactor", FAIL_FAST);
+        sinkOne.emitValue(null, FAIL_FAST);
 
-        mono.subscribe(data -> log.info("# Subscriber1 ", data));
-        mono.subscribe(data -> log.info("# Subscriber2 ", data));
+        mono.subscribe(data -> log.info("# Subscriber1 {}", data));
+        mono.subscribe(data -> log.info("# Subscriber2 {}", data));
     }
 }
