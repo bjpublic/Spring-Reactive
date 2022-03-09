@@ -13,6 +13,7 @@ public class Example10_1 {
     public static void main(String[] args) throws InterruptedException {
         Flux.fromArray(new Integer[] {1, 3, 5, 7})
                 .subscribeOn(Schedulers.boundedElastic())
+                .doOnNext(data -> log.info("# doOnNext: {}", data))
                 .doOnSubscribe(subscription -> log.info("# doOnSubscribe"))
                 .subscribe(data -> log.info("# onNext: {}", data));
 
