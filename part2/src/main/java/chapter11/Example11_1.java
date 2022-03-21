@@ -24,7 +24,7 @@ public class Example11_1 {
             .subscribeOn(Schedulers.boundedElastic())
             .publishOn(Schedulers.parallel())
             .transformDeferredContextual(
-                    (mono2, ctx) -> mono2.map(data -> data + " " + ctx.get("lastName"))
+                    (mono, ctx) -> mono.map(data -> data + " " + ctx.get("lastName"))
             )
             .contextWrite(context -> context.put("lastName", "Jobs"))
             .contextWrite(context -> context.put("firstName", "Steve"))
