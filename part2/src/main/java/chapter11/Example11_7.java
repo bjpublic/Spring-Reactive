@@ -7,7 +7,7 @@ import reactor.core.scheduler.Schedulers;
 /**
  * Context의 특징
  *  - inner Sequence 내부에서는 외부 Context에 저장된 데이터를 읽을 수 있다.
- *  - inner Sequence 내부에서 Context에 저장된 데이터는 inner Sequence 외부에서 읽을 수 없다.
+ *  - inner Sequence 외부에서는 inner Sequence 내부 Context에 저장된 데이터를  읽을 수 없다.
  */
 @Slf4j
 public class Example11_7 {
@@ -15,8 +15,8 @@ public class Example11_7 {
         String key1 = "company";
         Mono
             .just("Steve")
-            .transformDeferredContextual((stringMono, contextView) ->
-                    contextView.get("role"))
+            .transformDeferredContextual((stringMono, ctx) ->
+                    ctx.get("role"))
             .flatMap(name ->
                 Mono.deferContextual(ctx ->
                     Mono
