@@ -2,18 +2,16 @@ package chapter12;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Hooks;
-import reactor.core.scheduler.Schedulers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 /**
- * onOperatorDebug() Hook 메서드를 이용한 Debug mode 예
- * - 애플리케이션 전체에서 global 하게 동작한다.
+ * log() operator를 사용한 예제
  */
 @Slf4j
-public class Example12_1 {
+public class Example12_7 {
     public static Map<String, String> fruits = new HashMap<>();
 
     static {
@@ -23,21 +21,14 @@ public class Example12_1 {
         fruits.put("grape", "포도");
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Hooks.onOperatorDebug();
-
-        Flux
-                .fromArray(new String[]{"BANANAS", "APPLES", "PEARS", "MELONS"})
-                .subscribeOn(Schedulers.boundedElastic())
-                .publishOn(Schedulers.parallel())
+    public static void main(String[] args) {
+        Flux.fromArray(new String[]{"BANANAS", "APPLES", "PEARS", "MELONS"})
                 .map(String::toLowerCase)
                 .map(fruit -> fruit.substring(0, fruit.length() - 1))
+                .log("Fruit.Substring", Level.FINE)
                 .map(fruits::get)
-                .map(translated -> "맛있는 " + translated)
                 .subscribe(
                         log::info,
                         error -> log.error("# onError:", error));
-
-        Thread.sleep(100L);
     }
 }
