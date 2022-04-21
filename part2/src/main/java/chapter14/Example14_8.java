@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
  * range 예제
  */
 @Slf4j
-public class Example14_7 {
+public class Example14_8 {
     public static void main(String[] args) {
         Flux
             .range(7, 5)
