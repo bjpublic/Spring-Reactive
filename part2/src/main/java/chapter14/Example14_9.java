@@ -1,29 +1,21 @@
 package chapter14;
 
 import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Mono;
-
-import java.time.LocalDateTime;
+import reactor.core.publisher.Flux;
 
 /**
- * defer 예제
+ * generate 예제
  */
 @Slf4j
 public class Example14_9 {
-    public static void main(String[] args) throws InterruptedException {
-        log.info("# start: {}", LocalDateTime.now());
-        Mono<LocalDateTime> justMono = Mono.just(LocalDateTime.now());
-        Mono<LocalDateTime> deferMono = Mono.defer(() ->
-                                                    Mono.just(LocalDateTime.now()));
-
-        Thread.sleep(2000);
-
-        justMono.subscribe(data -> log.info("# onNext just1: {}", data));
-        deferMono.subscribe(data -> log.info("# onNext defer1: {}", data));
-
-        Thread.sleep(2000);
-
-        justMono.subscribe(data -> log.info("# onNext just2: {}", data));
-        deferMono.subscribe(data -> log.info("# onNext defer2: {}", data));
+    public static void main(String[] args) {
+        Flux
+            .generate(() -> 0, (state, sink) -> {
+                sink.next(state);
+                if (state == 10)
+                    sink.complete();
+                return ++state;
+            })
+            .subscribe(data -> log.info("# onNext: {}", data));
     }
 }

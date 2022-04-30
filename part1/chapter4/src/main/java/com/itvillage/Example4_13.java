@@ -3,14 +3,12 @@ package com.itvillage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 /**
- * Function 사용 예제
+ * Consumer 사용 예제
  */
-public class Example4_16 {
+public class Example4_13 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
         List<CryptoCurrency> filtered =
@@ -18,13 +16,11 @@ public class Example4_16 {
                         cc -> cc.getUnit() == CryptoCurrency.CurrencyUnit.BTC ||
                         cc.getUnit() == CryptoCurrency.CurrencyUnit.ETH);
 
-        int totalPayment = calculatePayment(filtered, cc -> cc.getPrice() * 2);
-
-        System.out.println("# 구매 비용: " + totalPayment);
+        addBookmark(filtered, cc -> saveBookmark(cc));
     }
 
     private static List<CryptoCurrency> filter(List<CryptoCurrency> cryptoCurrencies,
-                                               Predicate<CryptoCurrency> p) {
+                                               Predicate<CryptoCurrency> p){
         List<CryptoCurrency> result = new ArrayList<>();
         for (CryptoCurrency cc : cryptoCurrencies) {
             if (p.test(cc)) {
@@ -34,13 +30,14 @@ public class Example4_16 {
         return result;
     }
 
-    private static int calculatePayment(List<CryptoCurrency> cryptoCurrencies,
-                                        Function<CryptoCurrency, Integer> f) {
-        int totalPayment = 0;
+    private static void addBookmark(List<CryptoCurrency> cryptoCurrencies,
+                                    Consumer<CryptoCurrency> consumer) {
         for (CryptoCurrency cc : cryptoCurrencies) {
-            totalPayment += f.apply(cc);
+            consumer.accept(cc);
         }
-        Supplier s = () -> "";
-        return totalPayment;
+    }
+
+    private static void saveBookmark(CryptoCurrency cryptoCurrency) {
+        System.out.println("# Save " + cryptoCurrency.getUnit());
     }
 }

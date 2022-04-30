@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 /**
  * Predicate 사용 예제
  */
-public class Example4_12 {
+public class Example4_11 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
         List<CryptoCurrency> result = filter(cryptoCurrencies, cc -> cc.getPrice() > 500_000);

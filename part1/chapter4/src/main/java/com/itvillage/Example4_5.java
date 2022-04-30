@@ -1,20 +1,21 @@
 package com.itvillage;
 
-import java.util.Collections;
 import java.util.List;
 
+import static com.itvillage.CryptoCurrency.CurrencyUnit;
+
 /**
- * Comparator 함수형 인터페이스의 람다 표현 예제
+ * 람다 캡처링 예제
  */
 public class Example4_5 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
 
-        Collections.sort(cryptoCurrencies,
-                (cc1, cc2) -> cc1.getUnit().name().compareTo(cc2.getUnit().name()));
-
-        for(CryptoCurrency cryptoCurrency : cryptoCurrencies)
-            System.out.println("암호 화폐명: " + cryptoCurrency.getName() +
-                    ", 가격: " + cryptoCurrency.getUnit());
+        String korBTC = "비트코인";
+//        korBTC = "빗코인";
+        cryptoCurrencies.stream()
+                .filter(cc -> cc.getUnit() == CurrencyUnit.BTC)
+                .map(cc -> cc.getName() + "(" + korBTC + ")" )
+                .forEach(cc -> System.out.println(cc));
     }
 }

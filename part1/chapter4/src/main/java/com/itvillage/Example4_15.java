@@ -2,13 +2,14 @@ package com.itvillage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
- * Consumer 사용 예제
+ * Function 사용 예제
  */
-public class Example4_14 {
+public class Example4_15 {
     public static void main(String[] args) {
         List<CryptoCurrency> cryptoCurrencies = SampleData.cryptoCurrencies;
         List<CryptoCurrency> filtered =
@@ -16,11 +17,13 @@ public class Example4_14 {
                         cc -> cc.getUnit() == CryptoCurrency.CurrencyUnit.BTC ||
                         cc.getUnit() == CryptoCurrency.CurrencyUnit.ETH);
 
-        addBookmark(filtered, cc -> saveBookmark(cc));
+        int totalPayment = calculatePayment(filtered, cc -> cc.getPrice() * 2);
+
+        System.out.println("# 구매 비용: " + totalPayment);
     }
 
     private static List<CryptoCurrency> filter(List<CryptoCurrency> cryptoCurrencies,
-                                               Predicate<CryptoCurrency> p){
+                                               Predicate<CryptoCurrency> p) {
         List<CryptoCurrency> result = new ArrayList<>();
         for (CryptoCurrency cc : cryptoCurrencies) {
             if (p.test(cc)) {
@@ -30,14 +33,13 @@ public class Example4_14 {
         return result;
     }
 
-    private static void addBookmark(List<CryptoCurrency> cryptoCurrencies,
-                                    Consumer<CryptoCurrency> consumer) {
+    private static int calculatePayment(List<CryptoCurrency> cryptoCurrencies,
+                                        Function<CryptoCurrency, Integer> f) {
+        int totalPayment = 0;
         for (CryptoCurrency cc : cryptoCurrencies) {
-            consumer.accept(cc);
+            totalPayment += f.apply(cc);
         }
-    }
-
-    private static void saveBookmark(CryptoCurrency cryptoCurrency) {
-        System.out.println("# Save " + cryptoCurrency.getUnit());
+        Supplier s = () -> "";
+        return totalPayment;
     }
 }

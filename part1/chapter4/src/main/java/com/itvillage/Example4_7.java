@@ -1,10 +1,9 @@
 package com.itvillage;
 
-import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /**
- * ClassName :: static method 형태의 메서드 레퍼런스 예제
+ * ClassName :: instance method 형태의 메서드 레퍼런스 예제
  */
 public class Example4_7 {
     public static void main(String[] args) {
@@ -12,8 +11,8 @@ public class Example4_7 {
 
         cryptoCurrencies.stream()
                 .map(cc -> cc.getName())
-//                .map(name -> StringUtils.upperCase(name))
-                .map(StringUtils::upperCase)
+//                .map(name -> name.toUpperCase())
+                .map(String::toUpperCase)
                 .forEach(name -> System.out.println(name));
     }
 }

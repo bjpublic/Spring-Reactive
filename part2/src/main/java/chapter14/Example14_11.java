@@ -2,22 +2,28 @@ package chapter14;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
+import reactor.util.function.Tuple2;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
+import java.util.Map;
 
 /**
- * using 예제
+ * generate 예제
  */
 @Slf4j
 public class Example14_11 {
     public static void main(String[] args) {
-        Path path = Paths.get("D:\\resources\\using_example.txt");
-
+        Map<Integer, Tuple2<Integer, Long>> map =
+                                            SampleData.getBtcTopPricesPerYearMap();
         Flux
-            .using(() -> Files.lines(path), Flux::fromStream, Stream::close)
-            .subscribe(log::info);
+                .generate(() -> 2019, (state, sink) -> {
+                    if (state > 2021) {
+                        sink.complete();
+                    } else {
+                        sink.next(map.get(state));
+                    }
+
+                    return ++state;
+                })
+                .subscribe(data -> log.info("# onNext: {}", data));
     }
 }

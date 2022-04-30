@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * Supplier 사용 예제
  */
-public class Example4_18 {
+public class Example4_17 {
     public static void main(String[] args) {
         String mnemonic = createMnemonic();
         System.out.println(mnemonic);
