@@ -1,7 +1,5 @@
 package chapter14;
 
-import java.util.List;
-
 public class CryptoCurrencyPriceEmitter {
     private CryptoCurrencyPriceListener listener;
 
@@ -9,9 +7,10 @@ public class CryptoCurrencyPriceEmitter {
         this.listener = listener;
     }
 
-    public void flowInto(List<Integer> priceList) {
-        listener.onPrice(priceList);
+    public void flowInto() {
+        listener.onPrice(SampleData.btcPrices);
     }
+
     public void complete() {
         listener.onComplete();
     }
