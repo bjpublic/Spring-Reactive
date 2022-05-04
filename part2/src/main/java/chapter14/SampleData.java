@@ -40,9 +40,44 @@ public class SampleData {
                     Tuples.of(2021, 63_364_000L)
             );
 
+    public static final List<CovidVaccine> coronaVaccineNames = CovidVaccine.toList();
+
+    public static final List<Tuple2<CovidVaccine, Integer>> coronaVaccines =
+            Arrays.asList(
+                    Tuples.of(CovidVaccine.Pfizer, 1_000_000),
+                    Tuples.of(CovidVaccine.AstraZeneca, 3_000_000),
+                    Tuples.of(CovidVaccine.Moderna, 4_000_000),
+                    Tuples.of(CovidVaccine.Janssen, 2_000_000),
+                    Tuples.of(CovidVaccine.Novavax, 2_500_000)
+            );
+
     public static Map<Integer, Tuple2<Integer, Long>> getBtcTopPricesPerYearMap() {
         return btcTopPricesPerYear
                 .stream()
                 .collect(Collectors.toMap(t1 -> t1.getT1(), t2 -> t2));
+    }
+
+    public static Map<CovidVaccine, Tuple2<CovidVaccine, Integer>> getCovidVaccines() {
+        return coronaVaccines
+                .stream()
+                .collect(Collectors.toMap(t1 -> t1.getT1(), t2 -> t2));
+    }
+
+    public enum CovidVaccine {
+        Pfizer,
+        AstraZeneca,
+        Moderna,
+        Janssen,
+        Novavax;
+
+        public static List<CovidVaccine> toList() {
+            return Arrays.asList(
+                    CovidVaccine.Pfizer,
+                    CovidVaccine.AstraZeneca,
+                    CovidVaccine.Moderna,
+                    CovidVaccine.Janssen,
+                    CovidVaccine.Novavax
+            );
+        }
     }
 }
