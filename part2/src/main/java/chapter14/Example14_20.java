@@ -10,9 +10,9 @@ import reactor.core.publisher.Flux;
 public class Example14_20 {
     public static void main(String[] args) {
         Flux
-                .fromIterable(SampleData.btcTopPricesPerYear)
-                .filter(tuple -> tuple.getT2() >= 20_000_000)
-                .skip(2)
-                .subscribe(tuple -> log.info("{}, {}", tuple.getT1(), tuple.getT2()));
+            .fromIterable(SampleData.btcTopPricesPerYear)
+            .filter(tuple -> tuple.getT2() >= 20_000_000)
+            .skip(2)
+            .subscribe(tuple -> log.info("{}, {}", tuple.getT1(), tuple.getT2()));
     }
 }
