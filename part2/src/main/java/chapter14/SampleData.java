@@ -50,6 +50,22 @@ public class SampleData {
                     Tuples.of(CovidVaccine.Janssen, 2_000_000),
                     Tuples.of(CovidVaccine.Novavax, 2_500_000)
             );
+    public static final List<Tuple2<CovidVaccine, Integer>> viralVectorVaccines =
+            Arrays.asList(
+                    Tuples.of(CovidVaccine.AstraZeneca, 3_000_000),
+                    Tuples.of(CovidVaccine.Janssen, 2_000_000)
+            );
+
+    public static final List<Tuple2<CovidVaccine, Integer>> mRNAVaccines =
+            Arrays.asList(
+                    Tuples.of(CovidVaccine.Pfizer, 1_000_000),
+                    Tuples.of(CovidVaccine.Moderna, 4_000_000)
+            );
+
+    public static final List<Tuple2<CovidVaccine, Integer>> subunitVaccines =
+            Arrays.asList(
+                    Tuples.of(CovidVaccine.Novavax, 2_500_000)
+            );
 
     public static Map<Integer, Tuple2<Integer, Long>> getBtcTopPricesPerYearMap() {
         return btcTopPricesPerYear
