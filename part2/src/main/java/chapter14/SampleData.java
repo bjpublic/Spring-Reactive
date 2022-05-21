@@ -84,6 +84,11 @@ public class SampleData {
 
     public static Map<String, Mono<String>> nppMap = new HashMap<>();
     public static Map<String, String> morseCodeMap = new HashMap<>();
+    public static String[] morseCodes = {
+            ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
+            ".-..","--", "-.","---",".--.","--.-",".-.","...","-","..-","...-",
+            ".--","-..-","-.--","--.."};
+
     static {
         nppMap.put("Ontario",
                 Mono.just("Ontario Done").delayElement(Duration.ofMillis(1500L)));
@@ -106,10 +111,6 @@ public class SampleData {
         nppMap.put("Georgia",
                 Mono.just("Georgia Done").delayElement(Duration.ofMillis(900L)));
 
-        String[] morseCodes = {
-                ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
-                ".-..","--", "-.","---",".--.","--.-",".-.","...","-","..-","...-",
-                ".--","-..-","-.--","--.."};
         for (char c = 'a'; c <= 'a' + 25; c++) {
             morseCodeMap.put(morseCodes[c - ('z' - 25)], Character.toString(c));
         }
