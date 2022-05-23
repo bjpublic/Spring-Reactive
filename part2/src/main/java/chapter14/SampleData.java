@@ -149,6 +149,13 @@ public class SampleData {
                     Tuples.of(21, 0), Tuples.of(22, 1), Tuples.of(23, 0), Tuples.of(24, 0)
             );
 
+    public static final List<Book> books =
+            Arrays.asList(
+                    new Book("Advance Java", "Tom", "java-man", 25000),
+                    new Book("Advance Python", "Grace", "python-man", 22000),
+                    new Book("Advance Reactor", "David", null, 35000),
+                    new Book("Advance Kotlin", "Kevin", "kotlin-man", 32000)
+            );
     public enum CovidVaccine {
         Pfizer,
         AstraZeneca,
