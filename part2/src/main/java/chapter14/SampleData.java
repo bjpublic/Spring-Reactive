@@ -151,10 +151,26 @@ public class SampleData {
 
     public static final List<Book> books =
             Arrays.asList(
-                    new Book("Advance Java", "Tom", "java-man", 25000),
-                    new Book("Advance Python", "Grace", "python-man", 22000),
-                    new Book("Advance Reactor", "David", null, 35000),
-                    new Book("Advance Kotlin", "Kevin", "kotlin-man", 32000)
+                    new Book("Advance Java", "Tom",
+                            "Tom-boy", 25000, 100),
+                    new Book("Advance Python", "Grace",
+                            "Grace-girl", 22000, 150),
+                    new Book("Advance Reactor", "Smith",
+                            "David-boy", 35000, 200),
+                    new Book("Getting started Java", "Tom",
+                            "Tom-boy", 32000, 230),
+                    new Book("Advance Kotlin", "Kevin",
+                            "Kevin-boy", 32000, 250),
+                    new Book("Advance Javascript", "Mike",
+                            "Tom-boy", 32000, 320),
+                    new Book("Getting started Kotlin", "Kevin",
+                            "Kevin-boy", 32000, 150),
+                    new Book("Getting started Python", "Grace",
+                            "Grace-girl", 32000, 200),
+                    new Book("Getting started Reactor", "Smith",
+                            null, 32000, 250),
+                    new Book("Getting started Javascript", "Mike",
+                            "David-boy", 32000, 330)
             );
 
     public static final List<Integer> monthlyBookSales2021 =

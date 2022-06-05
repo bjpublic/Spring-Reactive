@@ -22,7 +22,7 @@ public class Example14_50 {
                         .forEach(book -> log.info("book name: {}, price: {}",
                                 book.getBookName(), book.getPrice())));
 
-        Thread.sleep(6000);
+        Thread.sleep(12000);
     }
 
     private static Flux<Book> getBooks() {
