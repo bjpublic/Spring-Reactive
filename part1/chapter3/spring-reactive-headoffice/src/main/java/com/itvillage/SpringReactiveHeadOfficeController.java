@@ -4,11 +4,9 @@ import com.itvillage.domain.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
@@ -18,8 +16,7 @@ import java.net.URI;
  * 본사 API Server
  */
 @Slf4j
-@RequestMapping(path = "/v1/books", produces = {MediaType.APPLICATION_JSON_VALUE})
-@CrossOrigin(origins = "*")
+@RequestMapping("/v1/books")
 @RestController
 public class SpringReactiveHeadOfficeController {
     URI baseUri = UriComponentsBuilder.newInstance().scheme("http")

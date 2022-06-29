@@ -1,2 +1,6 @@
 server:
   port: 5050
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level- %msg%n"

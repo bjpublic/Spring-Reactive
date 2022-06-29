@@ -5,24 +5,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 검색용 클라이언트 PC에서 들어오는 요청을 처리하는 Spring MVC 기반
  * 본사 API Server
  */
 @Slf4j
-@RequestMapping(path = "/v1/books", produces = {MediaType.APPLICATION_JSON_VALUE})
-@CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/v1/books")
 public class SpringMvcHeadOfficeController {
     private RestTemplate restTemplate;
 

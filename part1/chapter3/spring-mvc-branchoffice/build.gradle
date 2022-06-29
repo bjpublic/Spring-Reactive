@@ -6,7 +6,6 @@ plugins {
 
 group = 'com.itvillage'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 configurations {
     compileOnly {
