@@ -1,7 +1,7 @@
-package com.itvillage.reactive.mapper;
+package com.itvillage.reactive.v1.mapper;
 
-import com.itvillage.reactive.book.Book;
-import com.itvillage.reactive.book.BookDto;
+import com.itvillage.reactive.v1.book.Book;
+import com.itvillage.reactive.v1.book.BookDto;
 import org.mapstruct.Mapper;
 import reactor.core.publisher.Mono;
 

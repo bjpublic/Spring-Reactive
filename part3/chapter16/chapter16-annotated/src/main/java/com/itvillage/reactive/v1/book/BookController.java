@@ -1,6 +1,6 @@
-package com.itvillage.reactive.book;
+package com.itvillage.reactive.v1.book;
 
-import com.itvillage.reactive.mapper.BookMapper;
+import com.itvillage.reactive.v1.mapper.BookMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;

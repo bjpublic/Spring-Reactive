@@ -1,4 +1,4 @@
-package com.itvillage.reactive.book;
+package com.itvillage.reactive.v1.book;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

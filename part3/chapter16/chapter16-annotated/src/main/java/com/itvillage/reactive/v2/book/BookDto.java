@@ -1,4 +1,4 @@
-package com.itvillage.reactive.book;
+package com.itvillage.reactive.v2.book;
 
 import lombok.Builder;
 import lombok.Getter;
