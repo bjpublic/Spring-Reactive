@@ -37,7 +37,7 @@ public class SpringReactiveHeadOfficeController {
                 .build()
                 .expand(bookId)
                 .encode()
-                .toUri(); // http://localhost:7070/v1/books/{book-id}
+                .toUri(); // http://localhost:5050/v1/books/{book-id}
 
         return WebClient.create()
                 .get()

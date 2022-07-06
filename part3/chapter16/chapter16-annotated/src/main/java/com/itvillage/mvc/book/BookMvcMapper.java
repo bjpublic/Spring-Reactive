@@ -1,7 +1,5 @@
-package com.itvillage.mvc.mapper;
+package com.itvillage.mvc.book;
 
-import com.itvillage.mvc.book.Book;
-import com.itvillage.mvc.book.BookDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

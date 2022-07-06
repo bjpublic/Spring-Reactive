@@ -1,4 +1,4 @@
-package com.itvillage.book.entity;
+package com.itvillage.book;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
