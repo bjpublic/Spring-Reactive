@@ -173,21 +173,11 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/part3/chapter16/chapter16-annotated" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/part3/chapter17" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../software/build/gradle/gradle-7.4-bin/gradle-7.4" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/part3/chapter16/chapter16-annotated" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/part3/chapter16/chapter16-functional" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../software/build/gradle/gradle-7.4-bin/gradle-7.4" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/part3/chapter16/chapter16-functional" />
+            <option value="$PROJECT_DIR$/part3/chapter17" />
           </set>
         </option>
       </GradleProjectSettings>
