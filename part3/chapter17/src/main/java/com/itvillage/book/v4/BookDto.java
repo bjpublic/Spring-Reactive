@@ -1,4 +1,4 @@
-package com.itvillage.book.v2;
+package com.itvillage.book.v4;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -11,10 +11,20 @@ public class BookDto {
     public static class Post {
         @NotBlank
         private String titleKorean;
+
+        @NotBlank
         private String titleEnglish;
+
+        @NotBlank
         private String description;
+
+        @NotBlank
         private String author;
+
+        @NotBlank
         private String isbn;
+
+        @NotBlank
         private String publishDate;
     }
 

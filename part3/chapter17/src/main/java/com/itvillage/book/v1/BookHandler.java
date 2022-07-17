@@ -1,36 +1,28 @@
-package com.itvillage.book.v2;
+package com.itvillage.book.v1;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.BeanPropertyBindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import org.springframework.web.server.ServerWebInputException;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Slf4j
-@Component
-public class BookHandlerV2 {
+@Component("bookHandlerV1")
+public class BookHandler {
     private final BookMapper mapper;
-    private final BookValidator validator;
 
-    public BookHandlerV2(BookMapper mapper, BookValidator validator) {
+    public BookHandler(BookMapper mapper) {
         this.mapper = mapper;
-        this.validator = validator;
     }
 
     public Mono<ServerResponse> createBook(ServerRequest request) {
         return request.bodyToMono(BookDto.Post.class)
-                .doOnNext(post -> this.validate(post))
                 .map(post -> mapper.bookPostToBook(post))
                 .flatMap(book ->
                         ServerResponse
-                                .created(URI.create("/v2/books/" + book.getBookId()))
+                                .created(URI.create("/v1/books/" + book.getBookId()))
                                 .build());
     }
 
@@ -52,7 +44,7 @@ public class BookHandlerV2 {
                             .switchIfEmpty(ServerResponse.notFound().build());
     }
 
-    public Mono<ServerResponse> patchBook(ServerRequest request) {
+    public Mono<ServerResponse> updateBook(ServerRequest request) {
         final long bookId = Long.valueOf(request.pathVariable("book-id"));
         return request
                 .bodyToMono(BookDto.Patch.class)
@@ -88,14 +80,5 @@ public class BookHandlerV2 {
         return ServerResponse
                 .ok()
                 .bodyValue(mapper.booksToResponse(books));
-    }
-
-    private void validate(BookDto.Post post) {
-        Errors errors = new BeanPropertyBindingResult(post, "post");
-        validator.validate(post, errors);
-        if (errors.hasErrors()) {
-            log.error(errors.getAllErrors().toString());
-            throw new ServerWebInputException(errors.toString());
-        }
     }
 }

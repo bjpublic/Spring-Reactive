@@ -1,5 +1,6 @@
-package com.itvillage.book.v1;
+package com.itvillage.book.v4;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -9,21 +10,40 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Component
-public class BookHandlerV1 {
+@Slf4j
+@Component("bookHandlerV4")
+public class BookHandler {
     private final BookMapper mapper;
+    private final BookValidator validator;
 
-    public BookHandlerV1(BookMapper mapper) {
+    public BookHandler(BookMapper mapper, BookValidator validator) {
         this.mapper = mapper;
+        this.validator = validator;
     }
 
     public Mono<ServerResponse> createBook(ServerRequest request) {
         return request.bodyToMono(BookDto.Post.class)
-                .map(post -> mapper.bookPostToBook(post))
-                .flatMap(book ->
-                        ServerResponse
-                                .created(URI.create("/v1/books/" + book.getBookId()))
-                                .build());
+                .map(post -> {
+                    validator.validate(post);
+                    return mapper.bookPostToBook(post);
+                })
+                .flatMap(book -> ServerResponse
+                        .created(URI.create("/v1/books/" + book.getBookId()))
+                        .build());
+
+    }
+
+    public Mono<ServerResponse> updateBook(ServerRequest request) {
+        final long bookId = Long.valueOf(request.pathVariable("book-id"));
+        return request
+                .bodyToMono(BookDto.Patch.class)
+                .map(patch -> {
+                    validator.validate(patch);
+                    patch.setBookId(bookId);
+                    return mapper.bookPatchToBook(patch);
+                })
+                .flatMap(book -> ServerResponse.ok()
+                        .bodyValue(mapper.bookToResponse(book)));
     }
 
     public Mono<ServerResponse> getBook(ServerRequest request) {
@@ -39,21 +59,9 @@ public class BookHandlerV1 {
                         LocalDateTime.now(),
                         LocalDateTime.now());
         return ServerResponse
-                            .ok()
-                            .bodyValue(mapper.bookToResponse(book))
-                            .switchIfEmpty(ServerResponse.notFound().build());
-    }
-
-    public Mono<ServerResponse> patchBook(ServerRequest request) {
-        final long bookId = Long.valueOf(request.pathVariable("book-id"));
-        return request
-                .bodyToMono(BookDto.Patch.class)
-                .map(patch -> {
-                    patch.setBookId(bookId);
-                    return mapper.bookPatchToBook(patch);
-                })
-                .flatMap(book -> ServerResponse.ok()
-                        .bodyValue(mapper.bookToResponse(book)));
+                .ok()
+                .bodyValue(mapper.bookToResponse(book))
+                .switchIfEmpty(ServerResponse.notFound().build());
     }
 
     public Mono<ServerResponse> getBooks(ServerRequest request) {

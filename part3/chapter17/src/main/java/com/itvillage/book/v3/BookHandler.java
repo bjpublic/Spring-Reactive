@@ -1,7 +1,6 @@
 package com.itvillage.book.v3;
 
 import org.springframework.stereotype.Component;
-import org.springframework.validation.Validator;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -10,37 +9,38 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Component
-public class BookHandlerV3 extends BookValidationHandler {
+@Component("bookHandlerV3")
+public class BookHandler {
     private final BookMapper mapper;
+    private final BookValidator validator;
 
-    public BookHandlerV3(Validator validator, BookMapper mapper) {
-        super(validator);
+    public BookHandler(BookMapper mapper, BookValidator validator) {
         this.mapper = mapper;
+        this.validator = validator;
     }
 
-    @Override
-    protected Mono<ServerResponse> createBook(Object body, ServerRequest request) {
-        return Mono
-                .just((BookDto.Post)body)
-                .map(post -> mapper.bookPostToBook(post))
-                .flatMap(book->
-                        ServerResponse
-                                .created(URI.create("/v3/books/" + book.getBookId()))
-                                .build());
+    public Mono<ServerResponse> createBook(ServerRequest request) {
+        return request.bodyToMono(BookDto.Post.class)
+                .map(post -> {
+                    validator.validate(post);
+                    return mapper.bookPostToBook(post);
+                })
+                .flatMap(book -> ServerResponse
+                        .created(URI.create("/v1/books/" + book.getBookId()))
+                        .build());
     }
 
-    @Override
-    protected Mono<ServerResponse> updateBook(Object body, ServerRequest request) {
+    public Mono<ServerResponse> updateBook(ServerRequest request) {
         final long bookId = Long.valueOf(request.pathVariable("book-id"));
-        return Mono
-                .just((BookDto.Patch)body)
+        return request
+                .bodyToMono(BookDto.Patch.class)
                 .map(patch -> {
+                    validator.validate(patch);
                     patch.setBookId(bookId);
                     return mapper.bookPatchToBook(patch);
                 })
-                .flatMap(book ->
-                        ServerResponse.ok().bodyValue(mapper.bookToResponse(book)));
+                .flatMap(book -> ServerResponse.ok()
+                        .bodyValue(mapper.bookToResponse(book)));
     }
 
     public Mono<ServerResponse> getBook(ServerRequest request) {

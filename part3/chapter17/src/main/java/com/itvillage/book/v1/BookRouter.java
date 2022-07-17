@@ -1,4 +1,4 @@
-package com.itvillage.book.v2;
+package com.itvillage.book.v1;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,15 +6,15 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-@Configuration
-public class BookRouterV2 {
+@Configuration("bookRouterV1")
+public class BookRouter {
     @Bean
-    public RouterFunction<?> routeBookV2(BookHandlerV2 handler) {
+    public RouterFunction<?> routeBookV1(BookHandler handler) {
         return route()
-                .POST("/v2/books", handler::createBook)
-                .GET("/v2/books", handler::getBooks)
-                .GET("/v2/books/{book-id}", handler::getBook)
-                .PATCH("/v2/books/{book-id}", handler::patchBook)
+                .POST("/v1/books", handler::createBook)
+                .PATCH("/v1/books/{book-id}", handler::updateBook)
+                .GET("/v1/books", handler::getBooks)
+                .GET("/v1/books/{book-id}", handler::getBook)
                 .build();
 //        return route(POST("/v1/books"), handler::createBook)
 //                .andRoute(GET("/v1/books/{book-id}"), handler::getBook)

@@ -1,10 +1,7 @@
-package com.itvillage.book.v3;
+package com.itvillage.book.v2;
 
-import com.itvillage.book.v1.Book;
-import com.itvillage.book.v1.BookDto;
-import com.itvillage.book.v1.BookMapper;
-import com.itvillage.book.v2.BookValidator;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -17,12 +14,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
-//@Component
-public class BookHandlerV3Old {
+@Component("bookHandlerV2")
+public class BookHandler {
     private final BookMapper mapper;
     private final BookValidator validator;
 
-    public BookHandlerV3Old(BookMapper mapper, BookValidator validator) {
+    public BookHandler(BookMapper mapper, BookValidator validator) {
         this.mapper = mapper;
         this.validator = validator;
     }
@@ -33,7 +30,7 @@ public class BookHandlerV3Old {
                 .map(post -> mapper.bookPostToBook(post))
                 .flatMap(book ->
                         ServerResponse
-                                .created(URI.create("/v1/books/" + book.getBookId()))
+                                .created(URI.create("/v2/books/" + book.getBookId()))
                                 .build());
     }
 
@@ -94,7 +91,7 @@ public class BookHandlerV3Old {
     }
 
     private void validate(BookDto.Post post) {
-        Errors errors = new BeanPropertyBindingResult(post, "post");
+        Errors errors = new BeanPropertyBindingResult(post, BookDto.class.getName());
         validator.validate(post, errors);
         if (errors.hasErrors()) {
             log.error(errors.getAllErrors().toString());

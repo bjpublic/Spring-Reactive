@@ -1,12 +1,11 @@
 package com.itvillage.book.v2;
 
-import com.itvillage.book.v1.BookDto;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-@Component
+@Component("bookValidatorV2")
 public class BookValidator implements Validator {
     @Override
     public boolean supports(Class<?> clazz) {
