@@ -23,10 +23,8 @@ public class BookHandler {
 
     public Mono<ServerResponse> createBook(ServerRequest request) {
         return request.bodyToMono(BookDto.Post.class)
-                .map(post -> {
-                    validator.validate(post);
-                    return mapper.bookPostToBook(post);
-                })
+                .doOnNext(post -> validator.validate(post))
+                .map(post -> mapper.bookPostToBook(post))
                 .flatMap(book -> ServerResponse
                         .created(URI.create("/v1/books/" + book.getBookId()))
                         .build());
@@ -37,8 +35,8 @@ public class BookHandler {
         final long bookId = Long.valueOf(request.pathVariable("book-id"));
         return request
                 .bodyToMono(BookDto.Patch.class)
+                .doOnNext(patch -> validator.validate(patch))
                 .map(patch -> {
-                    validator.validate(patch);
                     patch.setBookId(bookId);
                     return mapper.bookPatchToBook(patch);
                 })

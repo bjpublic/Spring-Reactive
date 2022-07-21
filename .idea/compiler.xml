@@ -9,7 +9,7 @@
           <entry name="$PROJECT_DIR$/../../../software/build/gradle/gradle-7.4-bin/gradle-7.4/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
           <entry name="$PROJECT_DIR$/../../../software/build/gradle/gradle-7.4-bin/gradle-7.4/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.1.Final/2bdc76f0222d41dba87daba05be5c9f20029e23/mapstruct-processor-1.5.1.Final.jar" />
         </processorPath>
-        <module name="chapter16.main" />
+        <module name="chapter18.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">

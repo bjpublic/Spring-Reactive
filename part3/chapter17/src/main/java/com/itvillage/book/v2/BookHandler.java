@@ -34,6 +34,18 @@ public class BookHandler {
                                 .build());
     }
 
+    public Mono<ServerResponse> patchBook(ServerRequest request) {
+        final long bookId = Long.valueOf(request.pathVariable("book-id"));
+        return request
+                .bodyToMono(BookDto.Patch.class)
+                .map(patch -> {
+                    patch.setBookId(bookId);
+                    return mapper.bookPatchToBook(patch);
+                })
+                .flatMap(book -> ServerResponse.ok()
+                        .bodyValue(mapper.bookToResponse(book)));
+    }
+
     public Mono<ServerResponse> getBook(ServerRequest request) {
         long bookId = Long.valueOf(request.pathVariable("book-id"));
         Book book =
@@ -50,18 +62,6 @@ public class BookHandler {
                             .ok()
                             .bodyValue(mapper.bookToResponse(book))
                             .switchIfEmpty(ServerResponse.notFound().build());
-    }
-
-    public Mono<ServerResponse> patchBook(ServerRequest request) {
-        final long bookId = Long.valueOf(request.pathVariable("book-id"));
-        return request
-                .bodyToMono(BookDto.Patch.class)
-                .map(patch -> {
-                    patch.setBookId(bookId);
-                    return mapper.bookPatchToBook(patch);
-                })
-                .flatMap(book -> ServerResponse.ok()
-                        .bodyValue(mapper.bookToResponse(book)));
     }
 
     public Mono<ServerResponse> getBooks(ServerRequest request) {
