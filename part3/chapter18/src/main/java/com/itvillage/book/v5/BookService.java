@@ -2,7 +2,7 @@ package com.itvillage.book.v5;
 
 import com.itvillage.book.v5.exception.BusinessLogicException;
 import com.itvillage.book.v5.exception.ExceptionCode;
-import com.itvillage.util.CustomBeanUtils;
+import com.itvillage.utils.CustomBeanUtils;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

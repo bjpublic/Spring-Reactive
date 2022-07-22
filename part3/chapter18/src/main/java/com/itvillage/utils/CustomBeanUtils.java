@@ -1,4 +1,4 @@
-package com.itvillage.util;
+package com.itvillage.utils;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;

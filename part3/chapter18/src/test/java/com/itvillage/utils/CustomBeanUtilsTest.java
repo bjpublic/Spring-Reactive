@@ -1,4 +1,4 @@
-package com.itvillage.util;
+package com.itvillage.utils;
 
 import com.itvillage.book.v5.Book;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class BeanUtilsTest {
+public class CustomBeanUtilsTest {
     @Test
     public void copyNonNullPropertiesTest() {
         Book src = new Book();
