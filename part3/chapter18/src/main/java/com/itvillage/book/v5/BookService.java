@@ -1,7 +1,7 @@
 package com.itvillage.book.v5;
 
-import com.itvillage.book.v5.exception.BusinessLogicException;
-import com.itvillage.book.v5.exception.ExceptionCode;
+import com.itvillage.book.exception.BusinessLogicException;
+import com.itvillage.book.exception.ExceptionCode;
 import com.itvillage.utils.CustomBeanUtils;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -26,14 +26,11 @@ public class BookService {
     public Mono<Book> updateBook(Book book) {
         return findVerifiedBook(book.getBookId())
                 .map(findBook -> beanUtils.copyNonNullProperties(book, findBook))
-                .flatMap(updatedBook -> bookRepository.save(updatedBook));
+                .flatMap(updatingBook -> bookRepository.save(updatingBook));
     }
 
     public Mono<Book> findBook(long bookId) {
-        return bookRepository
-                .findById(bookId)
-                .switchIfEmpty(Mono.error(new BusinessLogicException(
-                                                    ExceptionCode.BOOK_NOT_FOUND)));
+        return findVerifiedBook(bookId);
     }
 
     public Mono<List<Book>> findBooks() {
@@ -52,7 +49,9 @@ public class BookService {
     }
 
     private Mono<Book> findVerifiedBook(long bookId) {
-        return bookRepository.findById(bookId)
-                .switchIfEmpty(Mono.error(new BusinessLogicException(ExceptionCode.BOOK_NOT_FOUND)));
+        return bookRepository
+                .findById(bookId)
+                .switchIfEmpty(Mono.error(new BusinessLogicException(
+                                                    ExceptionCode.BOOK_NOT_FOUND)));
     }
 }

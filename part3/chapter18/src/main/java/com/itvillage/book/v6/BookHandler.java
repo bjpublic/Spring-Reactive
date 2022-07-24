@@ -1,4 +1,4 @@
-package com.itvillage.book.v5;
+package com.itvillage.book.v6;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 
 @Slf4j
-@Component("BookHandlerV5")
+@Component("BookHandlerV6")
 public class BookHandler {
     private final BookMapper mapper;
     private final BookValidator validator;

@@ -1,4 +1,4 @@
-package com.itvillage.book.v5;
+package com.itvillage.book.v6;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import javax.validation.Validator;
 import java.util.Set;
 
 @Slf4j
-@Component("bookValidatorV5")
+@Component("bookValidatorV6")
 public class BookValidator<T> {
     private final Validator validator;
 
