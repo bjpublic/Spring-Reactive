@@ -9,12 +9,12 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration("bookRouterV7")
 public class BookRouter {
     @Bean
-    public RouterFunction<?> routeBookV5(BookHandler handler) {
+    public RouterFunction<?> routeBookV7(BookHandler handler) {
         return route()
-                .POST("/v5/books", handler::createBook)
-                .PATCH("/v5/books/{book-id}", handler::updateBook)
-                .GET("/v5/books", handler::getBooks)
-                .GET("/v5/books/{book-id}", handler::getBook)
+                .POST("/v7/books", handler::createBook)
+                .PATCH("/v7/books/{book-id}", handler::updateBook)
+                .GET("/v7/books", handler::getBooks)
+                .GET("/v7/books/{book-id}", handler::getBook)
                 .build();
     }
 }

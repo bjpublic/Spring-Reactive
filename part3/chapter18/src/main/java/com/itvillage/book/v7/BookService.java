@@ -6,9 +6,12 @@ import com.itvillage.utils.CustomBeanUtils;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 /**
@@ -36,9 +39,11 @@ public class BookService {
         return findVerifiedBook(bookId);
     }
 
-    public Mono<List<Book>> findBooks() {
-        // TODO
-        return bookRepository.findAll().collectList();
+    public Mono<List<Book>> findBooks(@Positive int page,
+                                      @Positive int size) {
+        return bookRepository
+                .findAllBy(PageRequest.of(page - 1, size, Sort.by("memberId").descending()))
+                .collectList();
     }
 
     private Mono<Void> verifyExistIsbn(String isbn) {

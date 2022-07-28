@@ -30,7 +30,7 @@ public class BookService {
     private final @NonNull R2dbcEntityTemplate template;
     private final @NonNull CustomBeanUtils<Book> beanUtils;
 
-    public Mono<Book> saveBook(Book book) {
+    public Mono<Book> createBook(Book book) {
         return verifyExistIsbn(book.getIsbn())
                 .then(template.insert(book));
     }

@@ -26,7 +26,7 @@ public class BookHandler {
     public Mono<ServerResponse> createBook(ServerRequest request) {
         return request.bodyToMono(BookDto.Post.class)
                 .doOnNext(post -> validator.validate(post))
-                .flatMap(post -> bookService.saveBook(mapper.bookPostToBook(post)))
+                .flatMap(post -> bookService.createBook(mapper.bookPostToBook(post)))
                 .flatMap(book -> ServerResponse
                         .created(URI.create("/v1/books/" + book.getBookId()))
                         .build());
