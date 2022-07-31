@@ -42,7 +42,8 @@ public class BookService {
     public Mono<List<Book>> findBooks(@Positive int page,
                                       @Positive int size) {
         return bookRepository
-                .findAllBy(PageRequest.of(page - 1, size, Sort.by("memberId").descending()))
+                .findAllBy(PageRequest.of(page - 1, size,
+                                                    Sort.by("memberId").descending()))
                 .collectList();
     }
 

@@ -45,15 +45,13 @@ public class BookService {
         return findVerifiedBook(bookId);
     }
 
-    public Mono<List<Book>> findBooks(@Positive long page,
-                                      @Positive long size) {
+    public Mono<List<Book>> findBooks(@Positive long page, @Positive long size) {
 
         return template
                 .select(Book.class)
                 .count()
                 .flatMap(total -> {
-                    Tuple2<Long, Long> skipAndTake =
-                                        getSkipAndTake(total, page, size);
+                    Tuple2<Long, Long> skipAndTake = getSkipAndTake(total, page, size);
                     return template
                             .select(Book.class)
                             .all()
