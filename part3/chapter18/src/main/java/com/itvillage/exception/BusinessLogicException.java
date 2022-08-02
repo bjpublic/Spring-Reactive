@@ -1,4 +1,4 @@
-package com.itvillage.book.exception;
+package com.itvillage.exception;
 
 import lombok.Getter;
 

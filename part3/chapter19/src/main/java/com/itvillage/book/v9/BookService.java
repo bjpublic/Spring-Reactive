@@ -1,4 +1,4 @@
-package com.itvillage.book.v8;
+package com.itvillage.book.v9;
 
 import com.itvillage.exception.BusinessLogicException;
 import com.itvillage.exception.ExceptionCode;
@@ -24,7 +24,7 @@ import static org.springframework.data.relational.core.query.Query.query;
  */
 @Slf4j
 @Validated
-@Service("bookServiceV8")
+@Service("bookServiceV9")
 @RequiredArgsConstructor
 public class BookService {
     private final @NonNull R2dbcEntityTemplate template;

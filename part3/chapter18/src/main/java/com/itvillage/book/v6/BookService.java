@@ -1,7 +1,7 @@
 package com.itvillage.book.v6;
 
-import com.itvillage.book.exception.BusinessLogicException;
-import com.itvillage.book.exception.ExceptionCode;
+import com.itvillage.exception.BusinessLogicException;
+import com.itvillage.exception.ExceptionCode;
 import com.itvillage.utils.CustomBeanUtils;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
