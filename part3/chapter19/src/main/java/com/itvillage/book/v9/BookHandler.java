@@ -30,7 +30,7 @@ public class BookHandler {
                 .doOnNext(post -> validator.validate(post))
                 .flatMap(post -> bookService.createBook(mapper.bookPostToBook(post)))
                 .flatMap(book -> ServerResponse
-                        .created(URI.create("/v1/books/" + book.getBookId()))
+                        .created(URI.create("/v9/books/" + book.getBookId()))
                         .build())
                 .onErrorResume(BusinessLogicException.class, error -> ServerResponse
                             .badRequest()

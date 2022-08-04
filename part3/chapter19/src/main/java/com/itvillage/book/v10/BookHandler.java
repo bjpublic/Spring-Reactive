@@ -1,4 +1,4 @@
-package com.itvillage.book.v8;
+package com.itvillage.book.v10;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import reactor.util.function.Tuples;
 import java.net.URI;
 
 @Slf4j
-@Component("BookHandlerV8")
+@Component("BookHandlerV10")
 public class BookHandler {
     private final BookMapper mapper;
     private final BookValidator validator;
@@ -28,7 +28,7 @@ public class BookHandler {
                 .doOnNext(post -> validator.validate(post))
                 .flatMap(post -> bookService.createBook(mapper.bookPostToBook(post)))
                 .flatMap(book -> ServerResponse
-                        .created(URI.create("/v8/books/" + book.getBookId()))
+                        .created(URI.create("/v10/books/" + book.getBookId()))
                         .build());
     }
 

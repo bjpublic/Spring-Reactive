@@ -24,7 +24,7 @@ public class BookHandler {
                 .doOnNext(post -> validator.validate(post))
                 .map(post -> mapper.bookPostToBook(post))
                 .flatMap(book -> ServerResponse
-                        .created(URI.create("/v1/books/" + book.getBookId()))
+                        .created(URI.create("/v3/books/" + book.getBookId()))
                         .build());
     }
 
