@@ -25,7 +25,7 @@ public class WebClientExample02 {
     public ApplicationRunner examplesWebClient02() {
 
         return (ApplicationArguments arguments) -> {
-//            exampleWebClient01();
+            exampleWebClient01();
 //            exampleWebClient02();
         };
     }

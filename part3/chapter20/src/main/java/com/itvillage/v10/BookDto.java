@@ -1,12 +1,13 @@
 package com.itvillage.v10;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 
 public class BookDto {
+    @AllArgsConstructor
     @Getter
     public static class Post {
         @NotBlank
@@ -40,7 +41,7 @@ public class BookDto {
         private String publishDate;
     }
 
-    @Builder
+    @AllArgsConstructor
     @Getter
     public static class Response {
         private long bookId;
