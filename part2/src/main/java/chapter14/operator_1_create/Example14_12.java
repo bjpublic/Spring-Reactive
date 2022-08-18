@@ -37,7 +37,7 @@ public class Example14_12 {
             });
 
             sink.onDispose(() -> log.info("# clean up"));
-        }).subscribe(new BaseSubscriber<>() {
+        }).subscribe(new BaseSubscriber<Integer>() {
             @Override
             protected void hookOnSubscribe(Subscription subscription) {
                 request(2);
