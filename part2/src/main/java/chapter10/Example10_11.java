@@ -6,8 +6,8 @@ import reactor.core.scheduler.Schedulers;
 
 
 /**
- * Schedulers.single() 예
- *  - Scheduler가 제거될 때까지 동일한 쓰레드를 재사용한다.
+ * Schedulers.newSingle() 예
+ *  - 호출할 때 마다 매번 하나의 쓰레드를 새로 생성한다.
  *
  */
 @Slf4j
@@ -24,7 +24,7 @@ public class Example10_11 {
 
     private static Flux<Integer> doTask(String taskName) {
         return Flux.fromArray(new Integer[] {1, 3, 5, 7})
-                .publishOn(Schedulers.single())
+                .publishOn(Schedulers.newSingle("new-single", true))
                 .filter(data -> data > 3)
                 .doOnNext(data -> log.info("# {} doOnNext filter: {}", taskName, data))
                 .map(data -> data * 10)

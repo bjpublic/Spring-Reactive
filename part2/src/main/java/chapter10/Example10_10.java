@@ -6,23 +6,28 @@ import reactor.core.scheduler.Schedulers;
 
 
 /**
- * Schedulers.immediate() 예
- *  - 별도의 쓰레드를 할당하지 않고, 현재 쓰레드에서 실행된다.
+ * Schedulers.single() 예
+ *  - Scheduler가 제거될 때까지 동일한 쓰레드를 재사용한다.
  *
  */
 @Slf4j
 public class Example10_10 {
     public static void main(String[] args) throws InterruptedException {
-        Flux
-            .fromArray(new Integer[] {1, 3, 5, 7})
-            .publishOn(Schedulers.parallel())
-            .filter(data -> data > 3)
-            .doOnNext(data -> log.info("# doOnNext filter: {}", data))
-            .publishOn(Schedulers.immediate())
-            .map(data -> data * 10)
-            .doOnNext(data -> log.info("# doOnNext map: {}", data))
-            .subscribe(data -> log.info("# onNext: {}", data));
+        doTask("task1")
+                .subscribe(data -> log.info("# onNext: {}", data));
+
+        doTask("task2")
+                .subscribe(data -> log.info("# onNext: {}", data));
 
         Thread.sleep(200L);
+    }
+
+    private static Flux<Integer> doTask(String taskName) {
+        return Flux.fromArray(new Integer[] {1, 3, 5, 7})
+                .publishOn(Schedulers.single())
+                .filter(data -> data > 3)
+                .doOnNext(data -> log.info("# {} doOnNext filter: {}", taskName, data))
+                .map(data -> data * 10)
+                .doOnNext(data -> log.info("# {} doOnNext map: {}", taskName, data));
     }
 }
