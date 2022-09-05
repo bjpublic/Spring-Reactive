@@ -32,7 +32,7 @@ public class SpringReactiveHeadOfficeApplication {
 	}
 
 	@Bean
-	public CommandLineRunner dataLoader() {
+	public CommandLineRunner run() {
 		return (String... args) -> {
 			log.info("# 요청 시작 시간: {}", LocalTime.now());
 
@@ -56,7 +56,7 @@ public class SpringReactiveHeadOfficeApplication {
 				.build()
 				.expand(bookId)
 				.encode()
-				.toUri(); // http://localhost:8080/v1/books/{book-id}
+				.toUri(); // http://localhost:6060/v1/books/{book-id}
 
 		return WebClient.create()
 				.get()

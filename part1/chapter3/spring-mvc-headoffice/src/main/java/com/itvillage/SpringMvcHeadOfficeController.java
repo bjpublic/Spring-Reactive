@@ -2,7 +2,6 @@ package com.itvillage;
 
 import com.itvillage.domain.Book;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/v1/books")
 public class SpringMvcHeadOfficeController {
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     URI baseUri = UriComponentsBuilder.newInstance().scheme("http")
             .host("localhost")
@@ -29,15 +28,14 @@ public class SpringMvcHeadOfficeController {
             .build()
             .encode()
             .toUri();
-    @Autowired
+
     public SpringMvcHeadOfficeController(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{book-id}")
-    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId)
-            throws InterruptedException {
+    public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId) {
         URI getBookUri = UriComponentsBuilder.fromUri(baseUri)
                 .path("/{book-id}")
                 .build()
