@@ -27,7 +27,9 @@ public class Example9_2 {
                             log.info("# emitted: {}", n);
                         }).start();
                         Thread.sleep(100L);
-                    } catch (InterruptedException e) {}
+                    } catch (InterruptedException e) {
+                        log.error(e.getMessage());
+                    }
                 });
 
         fluxView

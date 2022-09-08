@@ -9,15 +9,12 @@ import reactor.core.publisher.Mono;
  */
 public class Example6_2 {
     public static void main(String[] args) {
-        Mono.empty()
-//                .map(data -> {
-//                    System.out.println("# call map operator");
-//                    return data;
-//                })
-                .subscribe(
-                        none -> System.out.println("# emitted onNext signal"),
-                        error -> {},
-                        () -> System.out.println("# emitted onComplete signal")
-                );
+        Mono
+            .empty()
+            .subscribe(
+                    none -> System.out.println("# emitted onNext signal"),
+                    error -> {},
+                    () -> System.out.println("# emitted onComplete signal")
+            );
     }
 }
