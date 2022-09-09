@@ -11,8 +11,9 @@ import reactor.core.scheduler.Schedulers;
  */
 @Slf4j
 public class Example14_14 {
-    public static int start = 1;
-    public static int end = 4;
+    static int start = 1;
+    static int end = 4;
+
     public static void main(String[] args) throws InterruptedException {
         Flux.create((FluxSink<Integer> emitter) -> {
             emitter.onRequest(n -> {

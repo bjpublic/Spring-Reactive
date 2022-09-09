@@ -15,9 +15,9 @@ import java.util.List;
  */
 @Slf4j
 public class Example14_12 {
-    private static int size = 0;
-    private static int count = -1;
-    private static List<Integer> dataSource = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    static int SIZE = 0;
+    static int COUNT = -1;
+    final static List<Integer> DATA_SOURCE = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
     public static void main(String[] args) {
         log.info("# start");
@@ -26,18 +26,18 @@ public class Example14_12 {
                 try {
                     Thread.sleep(1000L);
                     for (int i = 0; i < n; i++) {
-                        if (count >= 9) {
+                        if (COUNT >= 9) {
                             sink.complete();
                         } else {
-                            count++;
-                            sink.next(dataSource.get(count));
+                            COUNT++;
+                            sink.next(DATA_SOURCE.get(COUNT));
                         }
                     }
                 } catch (InterruptedException e) {}
             });
 
             sink.onDispose(() -> log.info("# clean up"));
-        }).subscribe(new BaseSubscriber<Integer>() {
+        }).subscribe(new BaseSubscriber<>() {
             @Override
             protected void hookOnSubscribe(Subscription subscription) {
                 request(2);
@@ -45,11 +45,11 @@ public class Example14_12 {
 
             @Override
             protected void hookOnNext(Integer value) {
-                size++;
+                SIZE++;
                 log.info("# onNext: {}", value);
-                if (size == 2) {
+                if (SIZE == 2) {
                     request(2);
-                    size = 0;
+                    SIZE = 0;
                 }
             }
 

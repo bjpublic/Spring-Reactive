@@ -19,8 +19,6 @@ public class Example14_37 {
                             (int) t3.getT2().getT2() + (int) t3.getT3().getT2();
                     log.info("# onNext: {}, {}", t3.getT1().getT1(), sum);
                 });
-
-        Thread.sleep(6000L);
     }
 
     private static Flux getInfectedPersonsPerHour(int start, int end) {
