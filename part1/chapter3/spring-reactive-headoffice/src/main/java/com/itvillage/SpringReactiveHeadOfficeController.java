@@ -38,7 +38,7 @@ public class SpringReactiveHeadOfficeController {
                 .expand(bookId)
                 .encode()
                 .toUri(); // http://localhost:5050/v1/books/{book-id}
-
+        log.info("# Reactive Head Office received request.");
         return WebClient.create()
                 .get()
                 .uri(getBookUri)
