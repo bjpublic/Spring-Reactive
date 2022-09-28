@@ -14,7 +14,7 @@ import java.net.URI;
 import java.time.LocalTime;
 
 /**
- * 본사 API 서버에 도서 정보를 요청하는 검색용 클라이언트 PC 역할을 한다.
+ * 본사 API 서버에 도서 정보를 요청하는 검색용 클라이언트 PC 역할을 한다
  */
 @Slf4j
 @SpringBootApplication
