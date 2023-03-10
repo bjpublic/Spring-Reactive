@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
 /**
- * StepVerifier 활용 예제
+ * StepVerifier 활용 예제.
  */
 public class ExampleTest13_4 {
     @Test
